@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/background/background_diffculty.png" type="Texture" id=1]
+[ext_resource path="res://assets/font/UI-Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/font/16-UI-Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/UserInterface/Fader.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/Difficulty/Difficulty.gd" type="Script" id=6]
+[ext_resource path="res://assets/Lock/lock_open.png" type="Texture" id=10]
+[ext_resource path="res://assets/Lock/lock_close.png" type="Texture" id=11]
+
+[node name="Difficulty" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fader" parent="." instance=ExtResource( 5 )]
+
+[node name="Background" type="TextureRect" parent="Fader"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="Fader/Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -49.0
+margin_top = 37.0413
+margin_right = 49.0
+margin_bottom = 70.0413
+custom_fonts/font = ExtResource( 2 )
+text = "Difficulty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerHBoxBtn" type="HBoxContainer" parent="Fader/Background"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -91.0
+margin_top = -53.5
+margin_right = 91.0
+margin_bottom = 53.5
+rect_min_size = Vector2( 0, 107 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerEasy" type="VBoxContainer" parent="Fader/Background/ContainerHBoxBtn"]
+margin_right = 58.0
+margin_bottom = 107.0
+size_flags_vertical = 5
+
+[node name="EasyButton" type="TextureButton" parent="Fader/Background/ContainerHBoxBtn/ContainerEasy"]
+margin_right = 58.0
+margin_bottom = 66.0
+size_flags_horizontal = 5
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+
+[node name="Easy" type="Label" parent="Fader/Background/ContainerHBoxBtn/ContainerEasy"]
+margin_left = 17.0
+margin_top = 70.0
+margin_right = 40.0
+margin_bottom = 87.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Easy"
+
+[node name="ContainerMedium" type="VBoxContainer" parent="Fader/Background/ContainerHBoxBtn"]
+margin_left = 62.0
+margin_right = 120.0
+margin_bottom = 107.0
+
+[node name="MediumButton" type="TextureButton" parent="Fader/Background/ContainerHBoxBtn/ContainerMedium"]
+margin_right = 58.0
+margin_bottom = 66.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+
+[node name="Medium" type="Label" parent="Fader/Background/ContainerHBoxBtn/ContainerMedium"]
+margin_left = 9.0
+margin_top = 70.0
+margin_right = 48.0
+margin_bottom = 107.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Medium
+"
+
+[node name="ContainerHard" type="VBoxContainer" parent="Fader/Background/ContainerHBoxBtn"]
+margin_left = 124.0
+margin_right = 182.0
+margin_bottom = 107.0
+
+[node name="HardButton" type="TextureButton" parent="Fader/Background/ContainerHBoxBtn/ContainerHard"]
+margin_right = 58.0
+margin_bottom = 66.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+
+[node name="Hard" type="Label" parent="Fader/Background/ContainerHBoxBtn/ContainerHard"]
+margin_left = 17.0
+margin_top = 70.0
+margin_right = 41.0
+margin_bottom = 107.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Hard
+"
+[connection signal="pressed" from="Fader/Background/ContainerHBoxBtn/ContainerEasy/EasyButton" to="." method="_on_Easy_pressed"]
+[connection signal="pressed" from="Fader/Background/ContainerHBoxBtn/ContainerMedium/MediumButton" to="." method="_on_MediumButton_pressed"]
+[connection signal="pressed" from="Fader/Background/ContainerHBoxBtn/ContainerHard/HardButton" to="." method="_on_HardButton_pressed"]

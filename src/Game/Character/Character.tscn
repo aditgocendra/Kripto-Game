@@ -1,0 +1,127 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/Game/Character/Character.gd" type="Script" id=1]
+[ext_resource path="res://assets/font/character.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/particles-effect/star-01.png" type="Texture" id=3]
+[ext_resource path="res://assets/particles-effect/star-05.png" type="Texture" id=4]
+[ext_resource path="res://assets/particles-effect/star-02.png" type="Texture" id=5]
+[ext_resource path="res://assets/particles-effect/star-03.png" type="Texture" id=6]
+[ext_resource path="res://assets/particles-effect/star-06.png" type="Texture" id=7]
+[ext_resource path="res://assets/particles-effect/star-09.png" type="Texture" id=8]
+[ext_resource path="res://assets/particles-effect/star-07.png" type="Texture" id=9]
+[ext_resource path="res://assets/particles-effect/star-08.png" type="Texture" id=10]
+[ext_resource path="res://assets/particles-effect/star-04.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.666667, 0.666667, 0.666667, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id=2]
+resource_name = "change_alfhabet"
+tracks/0/type = "value"
+tracks/0/path = NodePath("FrameParticle:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FrameParticle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer:playback_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 10.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/normal:border_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.8, 0.8, 0.8, 1 ), Color( 0.580392, 0.188235, 0.188235, 1 ), Color( 0.8, 0.8, 0.8, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/normal:border_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.8, 0.8, 0.8, 1 ), Color( 0.192157, 0.501961, 0.0941176, 1 ), Color( 0.8, 0.8, 0.8, 1 ) ]
+}
+
+[node name="Character" type="Label"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+mouse_filter = 0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "a"
+align = 1
+valign = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/change_alfhabet = SubResource( 2 )
+anims/false_answer_player = SubResource( 3 )
+anims/true_answer_player = SubResource( 4 )
+
+[node name="FrameParticle" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -96.0
+margin_right = 96.0
+margin_bottom = 96.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="." to="." method="_on_Character_gui_input"]

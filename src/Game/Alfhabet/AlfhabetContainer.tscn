@@ -1,0 +1,290 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://assets/alfhabet-no-active/G.png" type="Texture" id=1]
+[ext_resource path="res://assets/alfhabet-no-active/O.png" type="Texture" id=2]
+[ext_resource path="res://assets/alfhabet-no-active/L.png" type="Texture" id=3]
+[ext_resource path="res://assets/alfhabet-no-active/M.png" type="Texture" id=4]
+[ext_resource path="res://assets/alfhabet-no-active/P.png" type="Texture" id=5]
+[ext_resource path="res://assets/alfhabet-no-active/D.png" type="Texture" id=6]
+[ext_resource path="res://assets/alfhabet-no-active/Z.png" type="Texture" id=7]
+[ext_resource path="res://assets/alfhabet-no-active/R.png" type="Texture" id=8]
+[ext_resource path="res://assets/alfhabet-no-active/N.png" type="Texture" id=9]
+[ext_resource path="res://assets/alfhabet-no-active/I.png" type="Texture" id=10]
+[ext_resource path="res://assets/alfhabet-no-active/J.png" type="Texture" id=11]
+[ext_resource path="res://assets/alfhabet-no-active/A.png" type="Texture" id=12]
+[ext_resource path="res://assets/alfhabet-no-active/X.png" type="Texture" id=13]
+[ext_resource path="res://assets/alfhabet-no-active/W.png" type="Texture" id=14]
+[ext_resource path="res://assets/alfhabet-no-active/Y.png" type="Texture" id=15]
+[ext_resource path="res://assets/alfhabet-no-active/F.png" type="Texture" id=16]
+[ext_resource path="res://assets/alfhabet-no-active/B.png" type="Texture" id=17]
+[ext_resource path="res://assets/alfhabet-no-active/H.png" type="Texture" id=18]
+[ext_resource path="res://assets/alfhabet-no-active/K.png" type="Texture" id=19]
+[ext_resource path="res://assets/alfhabet-no-active/C.png" type="Texture" id=20]
+[ext_resource path="res://assets/alfhabet-no-active/E.png" type="Texture" id=21]
+[ext_resource path="res://assets/alfhabet-active/II.png" type="Texture" id=22]
+[ext_resource path="res://assets/alfhabet-no-active/T.png" type="Texture" id=23]
+[ext_resource path="res://assets/alfhabet-no-active/U.png" type="Texture" id=24]
+[ext_resource path="res://assets/alfhabet-no-active/V.png" type="Texture" id=25]
+[ext_resource path="res://assets/alfhabet-no-active/S.png" type="Texture" id=26]
+[ext_resource path="res://assets/alfhabet-no-active/Q.png" type="Texture" id=27]
+[ext_resource path="res://assets/alfhabet-active/UU.png" type="Texture" id=28]
+[ext_resource path="res://assets/alfhabet-active/ZZ.png" type="Texture" id=29]
+[ext_resource path="res://assets/alfhabet-active/KK.png" type="Texture" id=30]
+[ext_resource path="res://assets/alfhabet-active/EE.png" type="Texture" id=31]
+[ext_resource path="res://assets/alfhabet-active/HH.png" type="Texture" id=32]
+[ext_resource path="res://assets/alfhabet-active/WW.png" type="Texture" id=33]
+[ext_resource path="res://assets/alfhabet-active/VV.png" type="Texture" id=34]
+[ext_resource path="res://assets/alfhabet-active/BB.png" type="Texture" id=35]
+[ext_resource path="res://assets/alfhabet-active/AA.png" type="Texture" id=36]
+[ext_resource path="res://assets/alfhabet-active/TT.png" type="Texture" id=37]
+[ext_resource path="res://assets/alfhabet-active/GG.png" type="Texture" id=38]
+[ext_resource path="res://assets/alfhabet-active/OO.png" type="Texture" id=39]
+[ext_resource path="res://assets/alfhabet-active/YY.png" type="Texture" id=40]
+[ext_resource path="res://assets/alfhabet-active/NN.png" type="Texture" id=41]
+[ext_resource path="res://assets/alfhabet-active/RR.png" type="Texture" id=42]
+[ext_resource path="res://assets/alfhabet-active/LL.png" type="Texture" id=43]
+[ext_resource path="res://assets/alfhabet-active/CC.png" type="Texture" id=44]
+[ext_resource path="res://assets/alfhabet-active/MM.png" type="Texture" id=45]
+[ext_resource path="res://assets/alfhabet-active/DD.png" type="Texture" id=46]
+[ext_resource path="res://assets/alfhabet-active/QQ.png" type="Texture" id=47]
+[ext_resource path="res://assets/alfhabet-active/SS.png" type="Texture" id=48]
+[ext_resource path="res://assets/alfhabet-active/FF.png" type="Texture" id=49]
+[ext_resource path="res://assets/alfhabet-active/JJ.png" type="Texture" id=50]
+[ext_resource path="res://assets/alfhabet-active/PP.png" type="Texture" id=51]
+[ext_resource path="res://assets/alfhabet-active/XX.png" type="Texture" id=52]
+[ext_resource path="res://src/Game/Alfhabet/AlfhabetContainer.gd" type="Script" id=53]
+
+[node name="AlfhabetContainer" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = 3.15436
+margin_right = 160.0
+margin_bottom = 107.154
+script = ExtResource( 53 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerAlfhabet1" type="HBoxContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 32.0
+
+[node name="A" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 36 )
+
+[node name="B" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 35 )
+
+[node name="C" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 44 )
+
+[node name="D" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 46 )
+
+[node name="E" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 144.0
+margin_right = 176.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 31 )
+
+[node name="F" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 180.0
+margin_right = 212.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 49 )
+
+[node name="G" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 216.0
+margin_right = 248.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 38 )
+
+[node name="H" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 252.0
+margin_right = 284.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 32 )
+
+[node name="I" type="TextureButton" parent="ContainerAlfhabet1"]
+margin_left = 288.0
+margin_right = 320.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 22 )
+
+[node name="ContainerAlfhabet2" type="HBoxContainer" parent="."]
+margin_top = 36.0
+margin_right = 320.0
+margin_bottom = 68.0
+
+[node name="J" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 50 )
+
+[node name="K" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 30 )
+
+[node name="L" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 43 )
+
+[node name="M" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 45 )
+
+[node name="N" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 144.0
+margin_right = 176.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 41 )
+
+[node name="O" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 180.0
+margin_right = 212.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 39 )
+
+[node name="P" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 216.0
+margin_right = 248.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 51 )
+
+[node name="Q" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 252.0
+margin_right = 284.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 27 )
+texture_pressed = ExtResource( 47 )
+
+[node name="R" type="TextureButton" parent="ContainerAlfhabet2"]
+margin_left = 288.0
+margin_right = 320.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 42 )
+
+[node name="ContainerAlfhabet3" type="HBoxContainer" parent="."]
+margin_left = 18.0
+margin_top = 72.0
+margin_right = 302.0
+margin_bottom = 104.0
+size_flags_horizontal = 4
+
+[node name="S" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 48 )
+
+[node name="T" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 37 )
+
+[node name="U" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 28 )
+
+[node name="V" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_left = 108.0
+margin_right = 140.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 34 )
+
+[node name="W" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_left = 144.0
+margin_right = 176.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 33 )
+
+[node name="X" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_left = 180.0
+margin_right = 212.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 52 )
+
+[node name="Y" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_left = 216.0
+margin_right = 248.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 40 )
+
+[node name="Z" type="TextureButton" parent="ContainerAlfhabet3"]
+margin_left = 252.0
+margin_right = 284.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 29 )
+[connection signal="pressed" from="ContainerAlfhabet1/A" to="." method="_on_A_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/B" to="." method="_on_B_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/C" to="." method="_on_C_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/D" to="." method="_on_D_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/E" to="." method="_on_E_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/F" to="." method="_on_F_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/G" to="." method="_on_G_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/H" to="." method="_on_H_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet1/I" to="." method="_on_I_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/J" to="." method="_on_J_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/K" to="." method="_on_K_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/L" to="." method="_on_L_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/M" to="." method="_on_M_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/N" to="." method="_on_N_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/O" to="." method="_on_O_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/P" to="." method="_on_P_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/Q" to="." method="_on_Q_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet2/R" to="." method="_on_R_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/S" to="." method="_on_S_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/T" to="." method="_on_T_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/U" to="." method="_on_U_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/V" to="." method="_on_V_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/W" to="." method="_on_W_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/X" to="." method="_on_X_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/Y" to="." method="_on_Y_pressed"]
+[connection signal="pressed" from="ContainerAlfhabet3/Z" to="." method="_on_Z_pressed"]

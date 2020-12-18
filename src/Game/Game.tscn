@@ -1,0 +1,213 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://src/UserInterface/Transition/Transition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Game/Alfhabet/AlfhabetContainer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/font/UI-Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/font/16-UI-Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/soundfx/character_click.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/button/back_button.png" type="Texture" id=6]
+[ext_resource path="res://assets/background/background.png" type="Texture" id=7]
+[ext_resource path="res://assets/button/reset_btn.png" type="Texture" id=8]
+[ext_resource path="res://assets/button/main_menu_button.png" type="Texture" id=9]
+[ext_resource path="res://src/Game/Game.gd" type="Script" id=10]
+[ext_resource path="res://assets/soundfx/alfhabet_click.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/button/accept_button.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.45098 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 0.45098 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id=2]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("DangerRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.905882, 0.113725, 0.113725, 0 ), Color( 0.905882, 0.113725, 0.113725, 0.454902 ), Color( 0.905882, 0.113725, 0.113725, 0 ) ]
+}
+
+[node name="Game" type="Node"]
+script = ExtResource( 10 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DangerRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.905882, 0.113725, 0.113725, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Transition" parent="DangerRect" instance=ExtResource( 1 )]
+pause_mode = 2
+
+[node name="ContainerCharacter" type="HBoxContainer" parent="DangerRect"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -129.219
+margin_right = 400.0
+margin_bottom = -65.2191
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlfhabetContainer" parent="DangerRect" instance=ExtResource( 2 )]
+show_behind_parent = true
+margin_top = -21.2133
+margin_bottom = 82.7867
+
+[node name="ContainerBtnBack" type="HBoxContainer" parent="DangerRect"]
+show_behind_parent = true
+margin_left = 18.2551
+margin_top = 12.6992
+margin_right = 104.255
+margin_bottom = 53.6992
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="DangerRect/ContainerBtnBack"]
+show_behind_parent = true
+margin_right = 41.0
+margin_bottom = 41.0
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuBtn" type="TextureButton" parent="DangerRect/ContainerBtnBack"]
+show_behind_parent = true
+margin_left = 45.0
+margin_right = 86.0
+margin_bottom = 41.0
+texture_normal = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerButton" type="HBoxContainer" parent="DangerRect"]
+show_behind_parent = true
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -150.379
+margin_top = -99.0178
+margin_right = -16.3789
+margin_bottom = -34.0178
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResetClue" type="TextureButton" parent="DangerRect/ContainerButton"]
+show_behind_parent = true
+margin_right = 65.0
+margin_bottom = 65.0
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enter" type="TextureButton" parent="DangerRect/ContainerButton"]
+show_behind_parent = true
+margin_left = 69.0
+margin_right = 134.0
+margin_bottom = 65.0
+texture_normal = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTimer" type="Label" parent="DangerRect"]
+show_behind_parent = true
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -179.26
+margin_top = 18.0109
+margin_right = -18.2596
+margin_bottom = 51.0109
+custom_fonts/font = ExtResource( 3 )
+text = "Time Left  :  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoxDialog" type="Panel" parent="DangerRect"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -238.5
+margin_top = -103.432
+margin_right = 238.5
+margin_bottom = -27.4317
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hint" type="RichTextLabel" parent="DangerRect/BoxDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = -26.5
+margin_right = 210.0
+margin_bottom = 26.5
+custom_fonts/normal_font = ExtResource( 4 )
+text = "Hint : null"
+
+[node name="DialogTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="TimeLeft" type="Timer" parent="."]
+
+[node name="TrueAnswerTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/danger_time = SubResource( 2 )
+
+[node name="AlfhabetClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+
+[node name="CharacterClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+[connection signal="pressed" from="DangerRect/ContainerBtnBack/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="DangerRect/ContainerBtnBack/MainMenuBtn" to="." method="_on_MainMenuBtn_pressed"]
+[connection signal="pressed" from="DangerRect/ContainerButton/ResetClue" to="." method="_on_ResetClue_pressed"]
+[connection signal="pressed" from="DangerRect/ContainerButton/Enter" to="." method="_on_Enter_pressed"]
+[connection signal="timeout" from="DialogTimer" to="." method="_on_DialogTimer_timeout"]
+[connection signal="timeout" from="TimeLeft" to="." method="_on_TimeLeft_timeout"]
+[connection signal="timeout" from="TrueAnswerTimer" to="." method="_on_TrueAnswerTimer_timeout"]
