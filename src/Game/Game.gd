@@ -181,4 +181,5 @@ func _on_ResetClue_pressed():
 
 func _on_MainMenuBtn_pressed():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://src/UserInterface/MainMenu/MainMenu.tscn")
+	$PopupBox.next_scene = "res://src/UserInterface/MainMenu/MainMenu.tscn"
+	$PopupBox.start_anim()

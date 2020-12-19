@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/UserInterface/Transition/Transition.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Game/Alfhabet/AlfhabetContainer.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/Game/Game.gd" type="Script" id=10]
 [ext_resource path="res://assets/soundfx/alfhabet_click.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/button/accept_button.png" type="Texture" id=12]
+[ext_resource path="res://src/UserInterface/Popup/PopupBox.tscn" type="PackedScene" id=13]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.45098 )
@@ -204,6 +205,8 @@ stream = ExtResource( 11 )
 
 [node name="CharacterClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="PopupBox" parent="." instance=ExtResource( 13 )]
 [connection signal="pressed" from="DangerRect/ContainerBtnBack/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="DangerRect/ContainerBtnBack/MainMenuBtn" to="." method="_on_MainMenuBtn_pressed"]
 [connection signal="pressed" from="DangerRect/ContainerButton/ResetClue" to="." method="_on_ResetClue_pressed"]

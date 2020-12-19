@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/background/background_popup.png" type="Texture" id=1]
+[ext_resource path="res://assets/font/16-UI-Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/button/no_btn.png" type="Texture" id=3]
+[ext_resource path="res://assets/button/yes_btn.png" type="Texture" id=4]
+[ext_resource path="res://src/UserInterface/Popup/PopupBox.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=2]
+resource_name = "close_popup"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "start"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="PopupBox" type="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -127.53
+margin_top = -63.5
+margin_right = 128.47
+margin_bottom = 64.5
+rect_scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -67.0
+margin_top = -33.5
+margin_right = 67.0
+margin_bottom = 33.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 134.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 12.0
+margin_top = 11.0
+margin_right = 122.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = "Do you want to exit ?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContainerButton" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 134.0
+margin_bottom = 67.0
+
+[node name="YesBtn" type="TextureButton" parent="VBoxContainer/ContainerButton"]
+margin_right = 65.0
+margin_bottom = 23.0
+texture_normal = ExtResource( 4 )
+
+[node name="NoBtn" type="TextureButton" parent="VBoxContainer/ContainerButton"]
+margin_left = 69.0
+margin_right = 134.0
+margin_bottom = 23.0
+texture_normal = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/close_popup = SubResource( 2 )
+anims/start = SubResource( 1 )
+[connection signal="pressed" from="VBoxContainer/ContainerButton/YesBtn" to="." method="_on_YesBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContainerButton/NoBtn" to="." method="_on_NoBtn_pressed"]
