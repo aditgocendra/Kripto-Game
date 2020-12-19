@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/font/UI-Font.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/font/16-UI-Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/button/back_btn.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/Settings/Settings.gd" type="Script" id=3]
+[ext_resource path="res://assets/background/setting_background.png" type="Texture" id=4]
+[ext_resource path="res://assets/button/apply_btn.png" type="Texture" id=5]
 
 [node name="Settings" type="Control"]
 anchor_left = 0.5
@@ -14,6 +16,14 @@ margin_top = -240.0
 margin_right = 420.0
 margin_bottom = 240.0
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -90,28 +100,26 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -179.367
-margin_top = -66.1921
-margin_right = -29.3669
-margin_bottom = -26.1921
+margin_left = -235.0
+margin_top = -57.0
+margin_right = -19.0
+margin_bottom = -17.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="ButtonContainer"]
-margin_right = 73.0
+[node name="Back" type="TextureButton" parent="ButtonContainer"]
+margin_right = 106.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-text = "Back"
+texture_normal = ExtResource( 2 )
 
-[node name="Apply" type="Button" parent="ButtonContainer"]
-margin_left = 77.0
-margin_right = 150.0
+[node name="Apply" type="TextureButton" parent="ButtonContainer"]
+margin_left = 110.0
+margin_right = 216.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 2 )
-text = "Apply"
+texture_normal = ExtResource( 5 )
 [connection signal="pressed" from="SoundContainer/BacksoundContainer/CheckBoxBacksound" to="." method="_on_CheckBoxBacksound_pressed"]
 [connection signal="pressed" from="SoundContainer/SFXContainer/CheckBoxSFX" to="." method="_on_CheckBoxSFX_pressed"]
 [connection signal="pressed" from="ButtonContainer/Back" to="." method="_on_Back_pressed"]
