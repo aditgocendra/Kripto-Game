@@ -20,3 +20,7 @@ func _on_Fade_IN_Finish():
 
 func _on_SettingBtn_pressed():
 	get_tree().change_scene("res://src/UserInterface/Settings/Settings.tscn")
+
+
+func _on_Quitbtn_pressed():
+	get_tree().quit()

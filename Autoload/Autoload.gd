@@ -15,30 +15,77 @@ var _file
 var json_data
 
 var default_data = {
-		  "question": {
-			"easy": {
-			  "1": {
-				"id_quest": 1,
-				"hint": "ROT 10",
-				"problem": "dkhtyd",
-				"answer": "nurdin",
-				"solve": false,
-				"time" : 60
-			  },
-			  "2": {
-				"id_quest": 2,
-				"hint": "ROT 13",
-				"problem": "qvgun",
-				"answer": "ditha",
-				"solve": false,
-				"time": 30
-			  }
-			}
-		  }
-		}
-	
-	
-
+  "game_settings": {
+	"sound": {
+	  "backsound": true,
+	  "sound_fx": true
+	}
+  },
+  "question": {
+	"easy": {
+	  "1": {
+		"answer": "moshing",
+		"clue": "wycrsxq",
+		"hint": "Cukup geser aja sebanyak 10 huruf kebelakang atau mundur gausah lebih",
+		"id_quest": 1,
+		"solve": false,
+		"time": 60
+	  },
+	  "2": {
+		"answer": "coding",
+		"clue": "rdsxcv",
+		"hint": "Hmm kali ini 15 aja ngga kurang ngga lebih. ' ROT 15 '",
+		"id_quest": 2,
+		"solve": false,
+		"time": 60
+	  },
+	  "3": {
+		"answer": "postman",
+		"clue": "xwabuiv",
+		"hint": "Mundur delapan langkah gerak",
+		"id_quest": 3,
+		"solve": false,
+		"time": 60
+	  }
+	},
+	"hard": {
+	  "1": {
+		"answer": "kripto",
+		"clue": null,
+		"hint": "Null Cipher + Enter............,,keris raja itali patah tiga oktober",
+		"id_quest": 1,
+		"solve": false,
+		"time": 60
+	  },
+	  "2": {
+		"answer": "bendera",
+		"clue": null,
+		"hint": "Arti dari bahasa inggris,7 huruf.....,, kriptografI merupakaN sebuah kategori darI perlomBaan hacking ataU\n\n         biasa diKenal sebagai cApture the flag, capture sendiri berarti\n\n         meNangkap, sedangkan Flag adalah bendera. namun artian sebenarnya\n\n         dari capture the fLag sendiri adalah sebuAh perlombaan hackinG yang\n\n         dimana peserta dituntut untuk mencari sebuah flag yang sudah\n\n         disisipkan oleh panitia dalam sebuah celah keamanan.",
+		"id_quest": 2,
+		"solve": false,
+		"time": 90
+	  }
+	},
+	"medium": {
+	  "1": {
+		"answer": "caesar",
+		"clue": "hfjxfw",
+		"hint": "Caesar Cipher Key 5",
+		"id_quest": 1,
+		"solve": false,
+		"time": 60
+	  },
+	  "2": {
+		"answer": "caesar",
+		"clue": "hfjxfw",
+		"hint": "Caesar Cipher Key 5",
+		"id_quest": 2,
+		"solve": false,
+		"time": 60
+	  }
+	}
+  }
+}
 
 
 func loadData():

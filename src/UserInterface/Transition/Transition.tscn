@@ -7,12 +7,12 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
-shader_param/cutoff = 1.0
+shader_param/cutoff = 0.0
 shader_param/smooth_size = 0.1
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/mask = ExtResource( 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "trans_lose"
 length = 2.5
 tracks/0/type = "value"
@@ -40,8 +40,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "transition_in"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
 tracks/0/interp = 1
@@ -55,8 +54,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "transition_out"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
 tracks/0/interp = 1
@@ -80,9 +78,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/trans_lose = SubResource( 4 )
-anims/transition_in = SubResource( 2 )
-anims/transition_out = SubResource( 3 )
+anims/trans_lose = SubResource( 2 )
+anims/transition_in = SubResource( 3 )
+anims/transition_out = SubResource( 4 )
 
 [node name="Lose" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
