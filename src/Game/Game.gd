@@ -167,9 +167,7 @@ func _on_DialogTimer_timeout():
 	hint_label.set_visible_characters(hint_label.get_visible_characters() + 1) 
 
 
-func _on_BackButton_pressed():
-# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://src/UserInterface/Difficulty/Difficulty.tscn")
+
 
 
 func _on_ResetClue_pressed():
@@ -179,7 +177,14 @@ func _on_ResetClue_pressed():
 		char_alfha.text = clue[i]
 
 
+func _on_BackButton_pressed():
+	$PopupBox.next_scene = "res://src/UserInterface/Difficulty/Difficulty.tscn"
+	$PopupBox.label = "Do you want change difficulty ?"
+	$PopupBox.start_anim()
+	
+	
 func _on_MainMenuBtn_pressed():
 # warning-ignore:return_value_discarded
 	$PopupBox.next_scene = "res://src/UserInterface/MainMenu/MainMenu.tscn"
+	$PopupBox.label = "Do you want to exit ?"
 	$PopupBox.start_anim()
