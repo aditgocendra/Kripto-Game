@@ -22,6 +22,7 @@ var active_char_node = null
 
 #display value timer
 var display_value = null
+var play_soundfx = false
 #--------------------------------------------
 
 func _ready():
@@ -29,6 +30,7 @@ func _ready():
 	Autoload.connect("pressed_character", self, "_change_character_active")
 	alfhabet_container.connect("alfha_pressed", self, "_change_character_alfha")
 	set_question()
+	sound_setup()
 	
 	if id_quest != null:
 		string_count = answer.length()
@@ -51,7 +53,8 @@ func add_character_node():
 
 
 func _change_character_active(object):
-	$CharacterClick.play()
+	if play_soundfx:
+		$CharacterClick.play()
 	var count_char = $DangerRect/ContainerCharacter.get_child_count()
 	active_char_node = object 
 	for i in range(count_char):
@@ -64,7 +67,8 @@ func _change_character_active(object):
 
 
 func _change_character_alfha(alfhabet):
-	$AlfhabetClick.play()
+	if play_soundfx:
+		$AlfhabetClick.play()
 	if active_char_node != null:
 		active_char_node.play_particle()
 		active_char_node.text = alfhabet
@@ -188,3 +192,11 @@ func _on_MainMenuBtn_pressed():
 	$PopupBox.next_scene = "res://src/UserInterface/MainMenu/MainMenu.tscn"
 	$PopupBox.label = "Do you want to exit ?"
 	$PopupBox.start_anim()
+
+
+
+
+func sound_setup():
+	var data = Autoload.loadData()
+	play_soundfx = data["game_settings"]["sound"]["sound_fx"]
+	
