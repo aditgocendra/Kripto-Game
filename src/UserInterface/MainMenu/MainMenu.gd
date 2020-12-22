@@ -5,6 +5,9 @@ onready var fader = $Fader
 
 
 func _ready():
+	$AnimationPlayer.play("play_button")
+	$AnimationPlayer2.play("setting_btn")
+	$AnimationPlayer3.play("exit_btn")
 	fader.connect("finish_fade_in", self, "_on_Fade_IN_Finish")
 	fader.fade_out()
 	sound_setup()
