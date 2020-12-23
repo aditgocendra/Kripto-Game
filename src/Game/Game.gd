@@ -35,12 +35,59 @@ func _ready():
 	if id_quest != null:
 		string_count = answer.length()
 		set_label_hint()
-		add_character_node()
+		set_character_node()
 		transition.trans_in()
 		$TimeLeft.start()
 
 
-func add_character_node():
+# set quest
+func set_question():
+	#get quest from func get_question()
+	var quest = get_question()
+	
+	
+	# if quest true then all quest finish
+	# else set question 
+	if quest.empty():
+		$PopupBox.label = "The level has been completed do you want to reset the level ?"
+		$PopupBox.next_scene = "res://src/Game/Game.tscn" 
+		$PopupBox.reset_mission = true
+		
+		$PopupBox.start_anim()
+	else:
+		answer = quest[0]["answer"]
+		clue = quest[0]["clue"]
+		hint = quest[0]["hint"]
+		display_value = quest[0]["time"]
+		id_quest = quest[0]["id_quest"]
+
+
+# get quest from data in database json
+func get_question():
+	var data = Autoload.loadData()
+	var question = []
+	
+	#get data from question in easy diff
+	#change data quest from dictionary to array object
+	var diff_set = Autoload.this_diffculty
+	if diff_set == null:
+		diff_set = "easy"
+	var data_quest = data["question"][diff_set].values()
+	
+	#shuffle quest used fisher yates 
+	var shuffle_quest = Shuffle.fisher_yates_quest(data_quest)
+	
+	#check quest if not complete append to question
+	for i in range(shuffle_quest.size()):
+		if not shuffle_quest[i]["solve"]:
+			question.append(shuffle_quest[i])
+			break
+	
+	return question
+
+
+#show character from length character
+func set_character_node():
 	# clue null is hard diffculty------------
 	if clue == null :
 		clue = Shuffle.fisher_yates_string(answer)
@@ -50,6 +97,24 @@ func add_character_node():
 		var new_character = character.duplicate()
 		new_character.text = clue[i]
 		$DangerRect/ContainerCharacter.add_child(new_character)
+
+
+func set_label_hint():
+	hint_label.set_bbcode(hint)
+	hint_label.set_visible_characters(0)
+
+func sound_setup():
+	var data = Autoload.loadData()
+	play_soundfx = data["game_settings"]["sound"]["sound_fx"]
+
+
+func quest_complete():
+	var current_quest = Autoload.loadData()
+	current_quest["question"]["easy"][str(id_quest)]["solve"] = true
+	Autoload.save_data(current_quest)
+	
+	Autoload.emit_signal("true_answer")
+	$TrueAnswerTimer.start()
 
 
 func _change_character_active(object):
@@ -90,7 +155,6 @@ func _on_Enter_pressed():
 		quest_complete()
 	else: 
 		Autoload.emit_signal("false_answer")
-		
 
 
 func _on_TimeLeft_timeout():
@@ -106,72 +170,13 @@ func _on_TimeLeft_timeout():
 		$AnimationPlayer.play("danger_time")
 
 
-# get quest from data in database json
-func get_question():
-	var data = Autoload.loadData()
-	var question = []
-	
-	#get data from question in easy diff
-	#change data quest from dictionary to array object
-	var diff_set = Autoload.this_diffculty
-	if diff_set == null:
-		diff_set = "easy"
-	var data_quest = data["question"][diff_set].values()
-	
-	#shuffle quest used fisher yates 
-	var shuffle_quest = Shuffle.fisher_yates_quest(data_quest)
-	
-	#check quest if not complete append to question
-	for i in range(shuffle_quest.size()):
-		if not shuffle_quest[i]["solve"]:
-			question.append(shuffle_quest[i])
-			break
-	
-	return question
-
-
-# set quest
-func set_question():
-	#get quest from func get_question()
-	var quest = get_question()
-	
-	
-	# if quest true then all quest finish
-	# else set question 
-	if quest.empty():
-		print("pass")
-	else:
-		answer = quest[0]["answer"]
-		clue = quest[0]["clue"]
-		hint = quest[0]["hint"]
-		display_value = quest[0]["time"]
-		id_quest = quest[0]["id_quest"]
-	
-	
-func quest_complete():
-	var current_quest = Autoload.loadData()
-	current_quest["question"]["easy"][str(id_quest)]["solve"] = true
-	Autoload.save_data(current_quest)
-	
-	Autoload.emit_signal("true_answer")
-	$TrueAnswerTimer.start()
-	
-
 func _on_TrueAnswerTimer_timeout():
 	$TimeLeft.stop()
-	get_tree().paused = true
-
-
-func set_label_hint():
-	hint_label.set_bbcode(hint)
-	hint_label.set_visible_characters(0)
+	get_tree().reload_current_scene()
 
 
 func _on_DialogTimer_timeout():
 	hint_label.set_visible_characters(hint_label.get_visible_characters() + 1) 
-
-
-
 
 
 func _on_ResetClue_pressed():
@@ -185,8 +190,8 @@ func _on_BackButton_pressed():
 	$PopupBox.next_scene = "res://src/UserInterface/Difficulty/Difficulty.tscn"
 	$PopupBox.label = "Do you want change difficulty ?"
 	$PopupBox.start_anim()
-	
-	
+
+
 func _on_MainMenuBtn_pressed():
 # warning-ignore:return_value_discarded
 	$PopupBox.next_scene = "res://src/UserInterface/MainMenu/MainMenu.tscn"
@@ -195,8 +200,3 @@ func _on_MainMenuBtn_pressed():
 
 
 
-
-func sound_setup():
-	var data = Autoload.loadData()
-	play_soundfx = data["game_settings"]["sound"]["sound_fx"]
-	
