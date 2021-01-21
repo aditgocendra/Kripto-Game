@@ -10,7 +10,8 @@ signal true_answer
 
 onready var this_diffculty = null
 
-var db_path = "res://Autoload/database.json"
+var db_path = "user://database.json"
+#var db_path = "res://Autoload/database.json"
 var _file
 var json_data
 
@@ -76,9 +77,9 @@ var default_data = {
 		"time": 60
 	  },
 	  "2": {
-		"answer": "caesar",
-		"clue": "hfjxfw",
-		"hint": "Caesar Cipher Key 5",
+		"answer": "ganteng",
+		"clue": "frdwcxa",
+		"hint": "!=1, @=2, A =1, Z=26/Letter Number, , dapatkah kamu menterjemahkan yang ini& ! !$ @) % !$ & ",
 		"id_quest": 2,
 		"solve": false,
 		"time": 60
@@ -86,6 +87,7 @@ var default_data = {
 	}
   }
 }
+
 
 
 func loadData():

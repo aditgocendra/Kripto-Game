@@ -29,3 +29,9 @@ func _on_HardButton_pressed():
 	next_scene = "res://src/Game/Game.tscn"
 	Autoload.this_diffculty = "hard"
 	fader.fade_in()
+
+
+func _on_BackButton_pressed():
+	next_scene = "res://src/UserInterface/MainMenu/MainMenu.tscn"
+	Autoload.this_diffculty = "hard"
+	fader.fade_in()
